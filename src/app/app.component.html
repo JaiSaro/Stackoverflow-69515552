@@ -1,0 +1,32 @@
+<h1 class="m-2 ml-4">Products</h1>
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let products of clientProducts">
+        <td>{{ products.Name }}</td>
+        <td>{{ products.DistributorPrice}}</td>
+        <td>
+          <input
+            type="number"
+            class="form-control my-n1"
+            [(ngModel)]="products.Quantity"
+            (keyup)="quantityChange($event, products)"
+          />
+        </td>
+        <td>{{ +products.DistributorPrice * +products.Quantity}}</td>
+        <td>
+          <button class="btn btn-success">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
